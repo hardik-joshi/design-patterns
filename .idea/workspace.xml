@@ -2,14 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e34fa1d-80e0-492f-b753-7c55cc383922" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/designpattern/builderpattern/pizzas/Calzone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/designpattern/builderpattern/pizzas/Demo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/designpattern/builderpattern/pizzas/NyPizza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/designpattern/builderpattern/pizzas/Pizza.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/designpattern/prototypepattern/Demo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/designpattern/prototypepattern/shapes/Circle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/designpattern/prototypepattern/shapes/Rectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/designpattern/prototypepattern/shapes/Shape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/effectivejava/chapter/item8/Adult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/effectivejava/chapter/item8/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/effectivejava/chapter/item8/Teenager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/Demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/app/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/app/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/buttons/Button.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/buttons/Button.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/buttons/MacOSButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/buttons/MacOSButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/buttons/WindowsButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/buttons/WindowsButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/checkboxes/Checkbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/checkboxes/Checkbox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/checkboxes/MacOSCheckbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/checkboxes/MacOSCheckbox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/checkboxes/WindowsCheckbox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/checkboxes/WindowsCheckbox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/factories/GUIFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/factories/GUIFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/factories/MacOSFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/factories/MacOSFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/factories/WindowsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/abstractfactorypattern/factories/WindowsFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderpattern/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderpattern/Demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderpattern/NutritionFacts$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderpattern/NutritionFacts$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderpattern/NutritionFacts$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderpattern/NutritionFacts$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderpattern/NutritionFacts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderpattern/NutritionFacts.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/Demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/builders/Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/builders/Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/builders/CarBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/builders/CarBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/builders/CarManualBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/builders/CarManualBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/cars/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/cars/Car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/cars/Manual.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/cars/Manual.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/cars/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/cars/Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/components/Engine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/components/Engine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/components/GPSNavigator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/components/GPSNavigator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/components/Transmission.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/components/Transmission.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/components/TripComputer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/components/TripComputer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/director/Director.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/builderspattern/director/Director.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/Demo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/Demo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/buttons/Button.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/buttons/Button.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/buttons/HtmlButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/buttons/HtmlButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/buttons/WindowsButton$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/buttons/WindowsButton$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/buttons/WindowsButton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/buttons/WindowsButton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/factory/Dialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/factory/Dialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/factory/HtmlDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/factory/HtmlDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/factory/WindowsDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/design-patterns/com/designpattern/factorypattern/factory/WindowsDialog.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,12 +73,13 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.designpattern.prototypepattern" />
       <recent name="com.designpattern.builderpattern.pizzas" />
     </key>
   </component>
@@ -58,13 +95,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Demo (3)">
-    <configuration name="Demo (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.designpattern.abstractfactorypattern.Demo" />
+  <component name="RunManager" selected="Application.Demo">
+    <configuration name="Adult" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.effectivejava.chapter.item8.Adult" />
       <module name="design-patterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.designpattern.abstractfactorypattern.*" />
+          <option name="PATTERN" value="com.effectivejava.chapter.item8.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,11 +136,11 @@
       </method>
     </configuration>
     <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.designpattern.factorypattern.Demo" />
+      <option name="MAIN_CLASS_NAME" value="com.designpattern.prototypepattern.Demo" />
       <module name="design-patterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.designpattern.factorypattern.*" />
+          <option name="PATTERN" value="com.designpattern.prototypepattern.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,13 +161,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Teenager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.effectivejava.chapter.item8.Teenager" />
+      <module name="design-patterns" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.effectivejava.chapter.item8.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Demo (3)" />
-        <item itemvalue="Application.Demo (3)" />
-        <item itemvalue="Application.Demo (2)" />
-        <item itemvalue="Application.Demo (1)" />
         <item itemvalue="Application.Demo" />
+        <item itemvalue="Application.Adult" />
+        <item itemvalue="Application.Teenager" />
+        <item itemvalue="Application.Demo (3)" />
+        <item itemvalue="Application.Demo (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -146,8 +196,17 @@
       <updated>1574763416478</updated>
       <workItem from="1574763419295" duration="19265000" />
       <workItem from="1574953739764" duration="1082000" />
-      <workItem from="1575018714286" duration="2705000" />
+      <workItem from="1575018714286" duration="4155000" />
+      <workItem from="1575388968772" duration="4113000" />
     </task>
+    <task id="LOCAL-00001" summary="Effective Java Third Edition. Builder pattern example">
+      <created>1575301195908</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1575301195908</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,5 +224,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Effective Java Third Edition. Builder pattern example" />
+    <option name="LAST_COMMIT_MESSAGE" value="Effective Java Third Edition. Builder pattern example" />
   </component>
 </project>
