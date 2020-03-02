@@ -18,5 +18,10 @@ public class MainComparator {
         Comparator<Person> cmpPersonAge = Comparator.comparing(Person::getAge);
         Comparator<Person> cmpPersonLastName = Comparator.comparing(Person::getLastName);
         Comparator<Person> cmpPersonFirstName = Comparator.comparing(Person::getFirstName);
+
+        // Compare age if age is same compare last name if last name is same compare first name
+        Comparator<Person> cmp = Comparator.comparing(Person::getAge)
+                .thenComparing(Person::getLastName)
+                .thenComparing(Person::getFirstName);
     }
 }
