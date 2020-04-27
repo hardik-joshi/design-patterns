@@ -34,10 +34,7 @@ public class Account {
     public void deposit(BigDecimal amount) {
         if (!this.isClosed)
             return; // Or do something more meaningful
-        if(this.isFrozen) {
-            this.isFrozen = false;
-            this.onUnfrozen.handle();
-        }
+        this.ensureUnfrozen();
         this.balance = this.balance.add(amount);
     }
 
@@ -46,10 +43,24 @@ public class Account {
             return; // Or do something more meaningful
         if (!isClosed)
             return;
-        if(this.isFrozen) {
-            this.isFrozen = false;
-            this.onUnfrozen.handle();
-        }
+        this.ensureUnfrozen();
         this.balance = this.balance.subtract(amount);
+    }
+
+    private void ensureUnfrozen() {
+        if (this.isFrozen) {
+            this.unfreeze();
+        } else {
+            this.stayUnfrozen();
+        }
+    }
+
+    private void unfreeze() {
+        this.isFrozen = false;
+        this.onUnfrozen.handle();
+    }
+
+    private void stayUnfrozen() {
+        // Do Nothing
     }
 }
