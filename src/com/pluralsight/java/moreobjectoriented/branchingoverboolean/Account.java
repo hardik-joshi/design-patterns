@@ -1,47 +1,43 @@
 package com.pluralsight.java.moreobjectoriented.branchingoverboolean;
 
+import com.pluralsight.java.moreobjectoriented.branchingoverboolean.accountstates.Active;
+
 import java.math.BigDecimal;
 
 public class Account {
-    private boolean isVerified;
-    private boolean isClosed;
     private BigDecimal balance;
-    private Freezable freezable;
+    private AccountState state;
 
     public Account(AccountUnfrozen onUnfrozen) {
-        this.balance = BigDecimal.ZERO;
-        this.freezable = new FreezableActive(onUnfrozen);
+        addToBalance(BigDecimal.ZERO);
+        this.state = new Active(onUnfrozen);
     }
 
     public void holderVerified() {
-        this.isVerified = true;
+        this.state = this.state.holderVerified();
     }
 
     public void closeAccount() {
-        this.isClosed = true;
+        this.state = this.state.closeAccount();
     }
 
     public void freezeAccount() {
-        if (this.isClosed)
-            return; // Account must not be closed
-        if (!this.isVerified)
-            return; // Account must be verified first
-        this.freezable = this.freezable.freezeAccount();
+        this.state = this.state.freezeAccount();
     }
 
     public void deposit(BigDecimal amount) {
-        if (!this.isClosed)
-            return; // Or do something more meaningful
-        this.freezable = this.freezable.deposit();
+        this.state = this.state.deposit(amount, this::addToBalance);
+    }
+
+    private void addToBalance(BigDecimal amount) {
         this.balance = this.balance.add(amount);
     }
 
     public void withdraw(BigDecimal amount) {
-        if (!isVerified)
-            return; // Or do something more meaningful
-        if (!isClosed)
-            return;
-        this.freezable = this.freezable.withdraw() ;
+        this.state = this.state.withdraw(balance, amount, this::subtractFromBalance);
+    }
+
+    private void subtractFromBalance(BigDecimal amount) {
         this.balance = this.balance.subtract(amount);
     }
 }
