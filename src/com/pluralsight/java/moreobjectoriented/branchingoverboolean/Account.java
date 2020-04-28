@@ -6,14 +6,11 @@ public class Account {
     private boolean isVerified;
     private boolean isClosed;
     private BigDecimal balance;
-
-    private EnsureUnfrozen ensureUnfrozen;
-    private AccountUnfrozen onUnfrozen;
+    private Freezable freezable;
 
     public Account(AccountUnfrozen onUnfrozen) {
         this.balance = BigDecimal.ZERO;
-        this.ensureUnfrozen = this::stayUnfrozen;
-        this.onUnfrozen = onUnfrozen;
+        this.freezable = new FreezableActive(onUnfrozen);
     }
 
     public void holderVerified() {
@@ -29,13 +26,13 @@ public class Account {
             return; // Account must not be closed
         if (!this.isVerified)
             return; // Account must be verified first
-        this.ensureUnfrozen = this::unfreeze;
+        this.freezable = this.freezable.freezeAccount();
     }
 
     public void deposit(BigDecimal amount) {
         if (!this.isClosed)
             return; // Or do something more meaningful
-        this.ensureUnfrozen.execute();
+        this.freezable = this.freezable.deposit();
         this.balance = this.balance.add(amount);
     }
 
@@ -44,16 +41,7 @@ public class Account {
             return; // Or do something more meaningful
         if (!isClosed)
             return;
-        this.ensureUnfrozen.execute();
+        this.freezable = this.freezable.withdraw() ;
         this.balance = this.balance.subtract(amount);
-    }
-
-    private void unfreeze() {
-        this.onUnfrozen.handle();
-        this.ensureUnfrozen = this::stayUnfrozen;
-    }
-
-    private void stayUnfrozen() {
-        // Do Nothing
     }
 }
