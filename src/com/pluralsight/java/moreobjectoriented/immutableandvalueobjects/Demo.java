@@ -3,22 +3,24 @@ package com.pluralsight.java.moreobjectoriented.immutableandvalueobjects;
 import java.math.BigDecimal;
 
 public class Demo {
-    private boolean isHappyHours;
-    private void reserve(Money cost) {
-        if (isHappyHours) {
-            cost.scale(.5);
-        }
-        System.out.println("Reserving an item costing " + cost);
+    private boolean isHappyHour;
+    private Money reserve(Money cost) {
+        Money finalCost = isHappyHour ? cost.scale(.5) : cost;
+        System.out.println("Reserving an item costing " + finalCost);
+        return finalCost;
     }
 
     private void buy(Money wallet, Money cost) {
         boolean enoughMoney = wallet.compareTo(cost) >= 0;
-        this.reserve(cost);
+        Money finalCost = this.reserve(cost);
+        boolean finalEnough = wallet.compareTo(finalCost) >= 0;
 
-        if(enoughMoney)
-            System.out.println("You will pay " + cost + " with your " + wallet);
+        if(finalEnough && !enoughMoney)
+            System.out.println("Only this time, you will pay " + finalCost + " with your " + wallet);
+        else if(finalEnough)
+            System.out.println("You will pay " + finalCost + " with your " + wallet);
         else
-            System.out.println("You cannot pay " + cost + " with your " + wallet);
+            System.out.println("You cannot pay " + finalCost + " with your " + wallet);
     }
 
     public void run() {
@@ -31,7 +33,7 @@ public class Demo {
         System.out.println();
         this.buy(usd7, usd10);
         System.out.println();
-        this.isHappyHours = true;
+        this.isHappyHour = true;
         this.buy(usd7, usd10);
     }
 
