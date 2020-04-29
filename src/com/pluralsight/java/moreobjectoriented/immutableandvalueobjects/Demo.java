@@ -3,7 +3,11 @@ package com.pluralsight.java.moreobjectoriented.immutableandvalueobjects;
 import java.math.BigDecimal;
 
 public class Demo {
+    private boolean isHappyHours;
     private void reserve(Money cost) {
+        if (isHappyHours) {
+            cost.scale(.5);
+        }
         System.out.println("Reserving an item costing " + cost);
     }
 
@@ -25,6 +29,9 @@ public class Demo {
 
         this.buy(usd12, usd10);
         System.out.println();
+        this.buy(usd7, usd10);
+        System.out.println();
+        this.isHappyHours = true;
         this.buy(usd7, usd10);
     }
 
