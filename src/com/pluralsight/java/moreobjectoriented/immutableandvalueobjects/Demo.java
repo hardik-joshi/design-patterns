@@ -35,6 +35,17 @@ public class Demo {
         System.out.println();
         this.isHappyHour = true;
         this.buy(usd7, usd10);
+        System.out.println();
+
+        int sum1 = 2 + 3;
+        Money usd2 = new Money(new BigDecimal(2), usd);
+        Money usd3 = new Money(new BigDecimal(3), usd);
+        Money sum2 = usd2.add(usd3);
+
+        System.out.println(sum1 + " is " + (Integer.valueOf(sum1).equals(5) ? "" : "not ") + "equal to " + 5);
+
+        Money usd5 = new Money(new BigDecimal(5), usd);
+        System.out.println(sum2 + " is " + (sum2.equals(usd5) ? "" : "not ") + "equal to " + usd5);
     }
 
     public static void main(String[] args) {
