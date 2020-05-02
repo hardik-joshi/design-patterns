@@ -12,7 +12,7 @@ public class Euro extends Money {
 
     @Override
     public boolean equals(Object other) {
-        return other instanceof Euro && this.equals((Euro) other);
+        return other != null && other.getClass() == this.getClass() && this.equals((Euro) other);
     }
 
     private boolean equals(Euro other) {
