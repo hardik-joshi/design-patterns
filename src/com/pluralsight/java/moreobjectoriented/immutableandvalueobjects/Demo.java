@@ -1,5 +1,6 @@
 package com.pluralsight.java.moreobjectoriented.immutableandvalueobjects;
 
+import javax.swing.plaf.ColorUIResource;
 import java.math.BigDecimal;
 
 public class Demo {
@@ -46,6 +47,14 @@ public class Demo {
 
         Money usd5 = new Money(new BigDecimal(5), usd);
         System.out.println(sum2 + " is " + (sum2.equals(usd5) ? "" : "not ") + "equal to " + usd5);
+
+        Currency eur = new Currency("EUR");
+        Money eur2 = new Money(new BigDecimal(2), eur);
+        Euro coin = new Euro(new BigDecimal(2), eur, "de");
+
+        System.out.println();
+        System.out.println(eur2 + " is " + (eur2.equals(coin)?"":"not ") + "equal to " + coin);
+        System.out.println(coin + " is " + (coin.equals(eur2)?"":"not ") + "equal to " + eur2);
     }
 
     public static void main(String[] args) {
