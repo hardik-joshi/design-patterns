@@ -2,7 +2,6 @@ package com.pluralsight.java.moreobjectoriented.immutableandvalueobjects;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.Objects;
 
 
 public class Money implements Comparable<Money> {
@@ -19,7 +18,7 @@ public class Money implements Comparable<Money> {
     }
 
     public Money add(Money other) {
-        if(other.currency.compareTo(this.currency) != 0)
+        if (other.currency.compareTo(this.currency) != 0)
             throw new IllegalArgumentException();
         return new Money(this.amount.add(other.amount), this.currency);
     }

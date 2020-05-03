@@ -1,7 +1,6 @@
 package com.pluralsight.java.moreobjectoriented.immutableandvalueobjects;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 public final class Currency implements Comparable<Currency> {
     private String symbol;

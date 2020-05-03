@@ -6,6 +6,7 @@ import java.util.Map;
 
 public class Demo {
     private boolean isHappyHour;
+
     private Money reserve(Money cost) {
         Money finalCost = isHappyHour ? cost.scale(.5) : cost;
         System.out.println("Reserving an item costing " + finalCost);
@@ -17,9 +18,9 @@ public class Demo {
         Money finalCost = this.reserve(cost);
         boolean finalEnough = wallet.compareTo(finalCost) >= 0;
 
-        if(finalEnough && !enoughMoney)
+        if (finalEnough && !enoughMoney)
             System.out.println("Only this time, you will pay " + finalCost + " with your " + wallet);
-        else if(finalEnough)
+        else if (finalEnough)
             System.out.println("You will pay " + finalCost + " with your " + wallet);
         else
             System.out.println("You cannot pay " + finalCost + " with your " + wallet);
@@ -54,8 +55,8 @@ public class Demo {
         Euro coin = new Euro(new BigDecimal(2), eur, "de");
 
         System.out.println();
-        System.out.println(eur2 + " is " + (eur2.equals(coin)?"":"not ") + "equal to " + coin);
-        System.out.println(coin + " is " + (coin.equals(eur2)?"":"not ") + "equal to " + eur2);
+        System.out.println(eur2 + " is " + (eur2.equals(coin) ? "" : "not ") + "equal to " + coin);
+        System.out.println(coin + " is " + (coin.equals(eur2) ? "" : "not ") + "equal to " + eur2);
 
         System.out.println();
         Map<Integer, String> amountToName = new HashMap<>();
