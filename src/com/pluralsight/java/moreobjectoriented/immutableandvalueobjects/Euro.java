@@ -1,6 +1,7 @@
 package com.pluralsight.java.moreobjectoriented.immutableandvalueobjects;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Euro extends Money {
     private String iso2Country;
@@ -17,6 +18,11 @@ public class Euro extends Money {
 
     private boolean equals(Euro other) {
         return super.equals(other) && this.iso2Country.equals(other.iso2Country);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode() * 31 + this.iso2Country.hashCode();
     }
 
     @Override

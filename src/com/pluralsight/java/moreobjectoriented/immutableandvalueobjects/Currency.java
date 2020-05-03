@@ -1,6 +1,7 @@
 package com.pluralsight.java.moreobjectoriented.immutableandvalueobjects;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public final class Currency implements Comparable<Currency> {
     private String symbol;
@@ -25,6 +26,11 @@ public final class Currency implements Comparable<Currency> {
 
     private boolean equals(Currency other) {
         return this.symbol.equals(other.symbol);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.symbol.hashCode();
     }
 
     @Override
