@@ -29,7 +29,7 @@ public class Demo {
 
         this.claimWarranty(item1);
 
-        Article item2 = new Article(Warranty.VOID, Warranty.VOID);
+        Article item2 = new Article(Warranty.VOID, Warranty.lifetime(sellingDate));
 
         this.claimWarranty(item2);
     }
