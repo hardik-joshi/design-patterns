@@ -3,7 +3,11 @@ package com.pluralsight.java.moreobjectoriented.removenullobjects;
 import java.time.LocalDate;
 
 public interface Warranty {
-    boolean isValidOn(LocalDate date);
+    Warranty on(LocalDate date);
+
+    default void claim(Runnable action) {
+        action.run();
+    }
 
     Warranty VOID = new VoidWarranty();
 
