@@ -13,11 +13,16 @@ public class Demo {
         System.out.println("Offer repair");
     }
 
+    private void offerSensorRepair() {
+        System.out.println("Offer sensor replacement");
+    }
+
     public void claimWarranty(Article article) {
         LocalDate today = LocalDate.now();
 
         article.getMoneyBackGuarantee().on(today).claim(this::offerMoneyBack);
         article.getExpressWarranty().on(today).claim(this::offerRepair);
+        article.getExtendedWarranty().on(today).claim(this::offerSensorRepair);
 
         System.out.println("-------------------");
     }
@@ -27,17 +32,19 @@ public class Demo {
         Warranty moneyBack1 = new TimeLimitedWarranty(sellingDate, Duration.ofDays(60));
         Warranty warranty1 = new TimeLimitedWarranty(sellingDate, Duration.ofDays(365));
 
-        Article item1 = new Article(moneyBack1, warranty1);
+        Part sensor = new Part(sellingDate);
+        Warranty sensorWarranty = new TimeLimitedWarranty(sellingDate, Duration.ofDays(90));
 
-        this.claimWarranty(item1);
-        this.claimWarranty(item1.withVisibleDamage());
-        this.claimWarranty(item1.notOperational().withVisibleDamage());
-        this.claimWarranty(item1.notOperational());
+        Article item = new Article(moneyBack1, warranty1).install(sensor, sensorWarranty);
 
-        Article item2 = new Article(Warranty.VOID, Warranty.lifetime(sellingDate));
+        this.claimWarranty(item);
+        this.claimWarranty(item.withVisibleDamage());
+        this.claimWarranty(item.notOperational().withVisibleDamage());
+        this.claimWarranty(item.notOperational());
 
-        this.claimWarranty(item2);
-        this.claimWarranty(item2.notOperational().withVisibleDamage());
+        LocalDate sensorExamined = LocalDate.now().minus(2, ChronoUnit.DAYS);
+        this.claimWarranty(item.sensorNotOperational(sensorExamined));
+        this.claimWarranty(item.notOperational().sensorNotOperational(sensorExamined));
     }
 
     public static void main(String[] args) {
