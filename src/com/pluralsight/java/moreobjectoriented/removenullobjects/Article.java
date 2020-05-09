@@ -1,23 +1,24 @@
 package com.pluralsight.java.moreobjectoriented.removenullobjects;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class Article {
     private Warranty moneyBackGuarantee;
     private Warranty expressWarranty;
     private Warranty effectiveExpressWarranty;
-    private Part sensor;
+    private Optional<Part> sensor;
     private Warranty extendedWarranty;
 
     public Article(Warranty moneyBackGuarantee, Warranty expressWarranty) {
-        this(moneyBackGuarantee, expressWarranty, Warranty.VOID, null, Warranty.VOID);
+        this(moneyBackGuarantee, expressWarranty, Warranty.VOID, Optional.empty(), Warranty.VOID);
     }
 
     private Article(
             Warranty moneyBackGuarantee,
             Warranty expressWarranty,
             Warranty effectiveExpressWarranty,
-            Part sensor,
+            Optional<Part> sensor,
             Warranty extendedWarranty) {
         this.moneyBackGuarantee = moneyBackGuarantee;
         this.expressWarranty = expressWarranty;
@@ -35,8 +36,7 @@ public class Article {
     }
 
     public Warranty getExtendedWarranty() {
-        return this.sensor == null ? Warranty.VOID
-                : this.sensor.apply(this.extendedWarranty);
+        return this.sensor.map(part -> part.apply(this.extendedWarranty)).orElse(Warranty.VOID);
     }
 
     public Article withVisibleDamage() {
@@ -51,10 +51,13 @@ public class Article {
 
     public Article install(Part sensor, Warranty extendedWarranty) {
         return new Article(this.moneyBackGuarantee, this.expressWarranty, this.effectiveExpressWarranty,
-                sensor, extendedWarranty);
+                Optional.of(sensor), extendedWarranty);
     }
 
     public Article sensorNotOperational(LocalDate detectedOn) {
-        return this.install(this.sensor.defective(detectedOn), this.extendedWarranty);
+        return this.sensor
+                .map(part -> part.defective(detectedOn))
+                .map(defective -> this.install(defective, this.extendedWarranty))
+                .orElse(this);
     }
 }

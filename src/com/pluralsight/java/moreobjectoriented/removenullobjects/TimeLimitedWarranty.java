@@ -2,6 +2,7 @@ package com.pluralsight.java.moreobjectoriented.removenullobjects;
 
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class TimeLimitedWarranty implements Warranty {
     private LocalDate dateIssued;
@@ -17,6 +18,13 @@ public class TimeLimitedWarranty implements Warranty {
         return date.compareTo(this.dateIssued) < 0 ? Warranty.VOID
                 : date.compareTo(getExpiredDate()) > 0 ? Warranty.VOID
                 : this;
+    }
+
+    @Override
+    public Optional<Warranty> filter(LocalDate date) {
+        return date.compareTo(this.dateIssued) >= 0 && date.compareTo(this.getExpiredDate()) <= 0
+                ? Optional.of(this)
+                : Optional.empty();
     }
 
     private LocalDate getExpiredDate() {
