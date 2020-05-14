@@ -2,9 +2,8 @@ package com.pluralsight.java.gettingstartedjunit5.patientintake;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class ClinicCalendar {
@@ -50,6 +49,11 @@ public class ClinicCalendar {
                 .anyMatch(appt -> appt.getAppointmentDateTime().toLocalDate().equals(date));
     }
 
+    public List<PatientAppointment> getUpcomingAppointments() {
+        return appointments.stream()
+                .filter(appt -> appt.getAppointmentDateTime().toLocalDate().isAfter(today))
+                .collect(Collectors.toList());
+    }
 }
 
 
