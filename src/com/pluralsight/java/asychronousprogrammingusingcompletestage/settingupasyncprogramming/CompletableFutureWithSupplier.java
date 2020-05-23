@@ -16,8 +16,20 @@ public class CompletableFutureWithSupplier {
             return Thread.currentThread().getName();
         };
         CompletableFuture<String> completableFuture = CompletableFuture.supplyAsync(supplier, executor);
+
         String string = completableFuture.join();
         System.out.println("Result: " + string);
+
+        //complete will return completed string
+        completableFuture.complete("Too long!");
+        string = completableFuture.join();
+        System.out.println("Result: " + string);
+
+        //obtrudeValue will return string which is pass
+        completableFuture.obtrudeValue("Too long!");
+        string = completableFuture.join();
+        System.out.println("Result: " + string);
+
         executor.shutdown();
     }
 }
