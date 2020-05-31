@@ -30,7 +30,7 @@ public class AsyncExample {
                         System.out.println("Currently running in " + Thread.currentThread().getName());
                         return ids.stream().map(User::new).collect(Collectors.toList());
                     };
-            return CompletableFuture.supplyAsync(userSupplier);
+            return CompletableFuture.supplyAsync(userSupplier, executor2);
         };
 
         Consumer<List<User>> displayer = users -> {
