@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 
 public class AsyncExample {
     public static void main(String[] args) {
-        ExecutorService executor = Executors.newSingleThreadExecutor();
+        ExecutorService executor1 = Executors.newSingleThreadExecutor();
+        ExecutorService executor2 = Executors.newSingleThreadExecutor();
 
         Supplier<List<Long>> supplyIDs = () -> {
             sleep(200);
@@ -23,6 +24,7 @@ public class AsyncExample {
 
         Function<List<Long>, CompletableFuture<List<User>>> fetchUsers = ids -> {
             sleep(300);
+            System.out.println("Function is currently running in " + Thread.currentThread().getName());
             Supplier<List<User>> userSupplier =
                     () -> {
                         System.out.println("Currently running in " + Thread.currentThread().getName());
@@ -37,11 +39,12 @@ public class AsyncExample {
         };
 
         CompletableFuture<List<Long>> completableFuture = CompletableFuture.supplyAsync(supplyIDs);
-        completableFuture.thenCompose(fetchUsers)
-                .thenAcceptAsync(displayer, executor);
+        completableFuture.thenComposeAsync(fetchUsers, executor2)
+                .thenAcceptAsync(displayer, executor1);
 
         sleep(1_000);
-        executor.shutdown();
+        executor1.shutdown();
+        executor2.shutdown();
     }
 
     private static void sleep(int timeout) {
