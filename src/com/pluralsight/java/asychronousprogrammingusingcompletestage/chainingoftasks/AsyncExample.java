@@ -21,9 +21,14 @@ public class AsyncExample {
             return Arrays.asList(1L, 2L, 3L);
         };
 
-        Function<List<Long>, List<User>> fetchUsers = ids -> {
+        Function<List<Long>, CompletableFuture<List<User>>> fetchUsers = ids -> {
             sleep(300);
-            return ids.stream().map(User::new).collect(Collectors.toList());
+            Supplier<List<User>> userSupplier =
+                    () -> {
+                        System.out.println("Currently running in " + Thread.currentThread().getName());
+                        return ids.stream().map(User::new).collect(Collectors.toList());
+                    };
+            return CompletableFuture.supplyAsync(userSupplier);
         };
 
         Consumer<List<User>> displayer = users -> {
@@ -32,7 +37,7 @@ public class AsyncExample {
         };
 
         CompletableFuture<List<Long>> completableFuture = CompletableFuture.supplyAsync(supplyIDs);
-        completableFuture.thenApply(fetchUsers)
+        completableFuture.thenCompose(fetchUsers)
                 .thenAcceptAsync(displayer, executor);
 
         sleep(1_000);
