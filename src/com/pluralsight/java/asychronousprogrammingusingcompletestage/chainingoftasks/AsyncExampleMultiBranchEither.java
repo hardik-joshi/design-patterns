@@ -39,8 +39,8 @@ public class AsyncExampleMultiBranchEither {
 
         CompletableFuture<List<Long>> completableFuture = CompletableFuture.supplyAsync(supplyIDs);
 
-        CompletableFuture<List<User>> users1 = completableFuture.thenCompose(fetchUsers1);
-        CompletableFuture<List<User>> users2 = completableFuture.thenCompose(fetchUsers2);
+        CompletableFuture<List<User>> users1 = completableFuture.thenComposeAsync(fetchUsers1);
+        CompletableFuture<List<User>> users2 = completableFuture.thenComposeAsync(fetchUsers2);
 
         users1.thenRun(() -> System.out.println("Users 1"));
         users2.thenRun(() -> System.out.println("Users 2"));
