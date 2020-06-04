@@ -2,7 +2,6 @@ package com.pluralsight.java.asychronousprogrammingusingcompletestage.exceptioni
 
 import com.pluralsight.java.asychronousprogrammingusingcompletestage.chainingoftasks.model.User;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -14,7 +13,8 @@ public class ExceptionExample {
     public static void main(String[] args) {
         Supplier<List<Long>> supplyIDs = () -> {
             sleep(200);
-            return Arrays.asList(1L, 2L, 3L);
+//            return Arrays.asList(1L, 2L, 3L);
+            throw new IllegalStateException("No data");
         };
 
         Function<List<Long>, List<User>> fetchUsers = ids -> {
