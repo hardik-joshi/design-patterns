@@ -25,7 +25,12 @@ public class ExceptionExample {
         Consumer<List<User>> displayer = users -> users.forEach(System.out::println);
 
         CompletableFuture<List<Long>> supply = CompletableFuture.supplyAsync(supplyIDs);
-        CompletableFuture<List<Long>> exception = supply.exceptionally(e -> List.of());
+        CompletableFuture<List<Long>> exception = supply.whenComplete((ids, e) -> {
+            if (e != null) {
+                System.out.println(e.getMessage());
+                e.printStackTrace();
+            }
+        });
         CompletableFuture<List<User>> fetch = exception.thenApply(fetchUsers);
         CompletableFuture<Void> display = fetch.thenAccept(displayer);
 
