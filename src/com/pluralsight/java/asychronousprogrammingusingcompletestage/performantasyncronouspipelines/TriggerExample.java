@@ -27,9 +27,13 @@ public class TriggerExample {
             users.forEach(System.out::println);
         };
 
-        CompletableFuture<List<Long>> completableFuture = CompletableFuture.supplyAsync(supplyIDs);
-        CompletableFuture<List<User>> fetch = completableFuture.thenApply(fetchUsers);
+        CompletableFuture<Void> start = new CompletableFuture<>();
+
+        CompletableFuture<List<Long>> supply = start.thenApply(nil -> supplyIDs.get());
+        CompletableFuture<List<User>> fetch = supply.thenApply(fetchUsers);
         CompletableFuture<Void> display = fetch.thenAccept(displayer);
+
+        start.complete(null);
 
         sleep(1_000);
     }
