@@ -5,6 +5,8 @@ import com.pluralsight.java.asychronousprogrammingusingcompletestage.chainingoft
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -12,6 +14,8 @@ import java.util.stream.Collectors;
 
 public class TriggerExample {
     public static void main(String[] args) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+
         Supplier<List<Long>> supplyIDs = () -> {
             sleep(200);
             return Arrays.asList(1L, 2L, 3L);
@@ -33,9 +37,11 @@ public class TriggerExample {
         CompletableFuture<List<User>> fetch = supply.thenApply(fetchUsers);
         CompletableFuture<Void> display = fetch.thenAccept(displayer);
 
-        start.complete(null);
+        start.completeAsync(() -> null, executor);
 
         sleep(1_000);
+
+        executor.shutdown();
     }
 
     private static void sleep(int timeout) {
